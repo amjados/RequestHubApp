@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
             const issue = await linearIssue.issue;
             linearIssueId = issue?.id;
             linearIssueUrl = issue?.url;
-        } catch (error) {
+        } catch {
             console.log("Linear integration not configured, skipping issue creation");
         }
 
@@ -91,7 +91,7 @@ export async function POST(request: NextRequest) {
     }
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(_request: NextRequest) {
     try {
         // Demo mode: Use test organization
         // const user = await requireOrg();

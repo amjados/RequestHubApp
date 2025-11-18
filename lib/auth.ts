@@ -10,7 +10,7 @@ export async function getCurrentUser() {
     }
 
     // Extract role from Clerk metadata
-    const role = (sessionClaims?.metadata as any)?.role as UserRole || "user";
+    const role = (sessionClaims?.metadata as { role?: UserRole })?.role || "user";
 
     return {
         userId,
